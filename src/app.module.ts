@@ -2,11 +2,11 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './modules/users/users.module';
 import { AppConfigModule } from './config/config.module';
+import { RolePermissionsModule } from './modules/role-permissions/role-permissions.module';
 
 @Module({
-  imports: [AppConfigModule, AuthModule, UsersModule],
+  imports: [AppConfigModule, AuthModule, RolePermissionsModule],
   controllers: [AppController],
   providers: [AppService],
 })
