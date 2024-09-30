@@ -16,6 +16,11 @@ async function bootstrap() {
       .setTitle(configService.get('app.docApiTitle'))
       .setDescription(configService.get('app.docApiDesc'))
       .setVersion(configService.get('app.docApiV'))
+      .addBearerAuth({
+        type: 'http',
+        scheme: 'bearer',
+        bearerFormat: 'JWT',
+      }, 'jwt')
       .build();
     const document = SwaggerModule.createDocument(app, config);
     SwaggerModule.setup(configService.get('app.docApiBaseUrl'), app, document, {
@@ -26,7 +31,7 @@ async function bootstrap() {
   }
 
   app.useGlobalFilters(new HttpExceptionFilter());
-  // app.useGlobalPipes(new ValidationPipe({transform :true}))
+  app.useGlobalPipes(new ValidationPipe({ transform: true }))
   await app.listen(configService.get('app.port'));
 }
 bootstrap();
