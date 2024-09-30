@@ -2,11 +2,11 @@ import { IsEmail, IsEnum, IsNotEmpty, IsOptional, IsUUID, Matches, MaxLength, Mi
 import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateUserDto {
-    @ApiProperty({ description: 'User name', example: 'Dude' })
+    @ApiProperty({ description: 'User name', example: 'Bob' })
     @IsNotEmpty({ message: 'Please enter name' })
     name: string;
 
-    @ApiProperty({ description: 'User email', example: 'dude@softobiz.com' })
+    @ApiProperty({ description: 'User email', example: 'bob@gmail.com' })
     @IsEmail({}, { message: 'Please enter a valid email' })
     email: string;
 
@@ -15,7 +15,7 @@ export class CreateUserDto {
     @IsUUID('all', { message: 'Invalid userRoleID' })
     userRoleID?: string | null;
 
-    @ApiProperty({ description: 'User password', example: 'Welcome@1' })
+    @ApiProperty({ description: 'User password', example: 'Welcome@123' })
     @MinLength(8)
     @MaxLength(20)
     @Matches(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/, {
