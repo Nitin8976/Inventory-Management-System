@@ -1,6 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn, ManyToOne } from 'typeorm';
 import { BaseEntity } from 'src/modules/common/entity/base.entity';
 import { UserRoleEntity } from 'src/modules';
+import { eUserStatus } from 'src/utils/entities.type';
 
 @Entity({ name: 'identity' })
 export class IdentityEntity extends BaseEntity {
@@ -15,6 +16,9 @@ export class IdentityEntity extends BaseEntity {
 
     @Column({ name: 'password' })
     password: string;
+
+    @Column({ name: 'status', enum: eUserStatus, type: 'simple-enum', nullable: true })
+    status: eUserStatus;
 
     @Column({ name: 'new_account_tour', default: false })
     newAccountTour: boolean;

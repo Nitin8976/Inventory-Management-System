@@ -1,5 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
-import { EmployeeEntity } from 'src/modules/employee/entity/create-employee.entity';
+import { EmployeeEntity } from 'src/modules/employee/entity/employee.entity';
 import { BaseEntity } from 'src/modules/common/entity/base.entity';
 
 @Entity({ name: 'departments' })

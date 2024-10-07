@@ -14,9 +14,6 @@ export class RoleModuleEntity extends BaseEntity {
   @Column({ name: 'description' })
   description: string;
 
-  @OneToMany(() => EmployeeEntity, (employee) => employee.role) // Add this line
-  employees: EmployeeEntity[];
-
   @OneToMany(() => PermissionEntity, permission => permission.roleModule)
   permissions: PermissionEntity[];
 

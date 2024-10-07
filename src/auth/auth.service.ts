@@ -112,12 +112,11 @@ export class AuthService {
             .leftJoinAndSelect('role.rolePermissions', 'rPerm', 'rPerm.isDeleted = :flag', { flag: false })
             .where(`
             user.email = :email AND
-            user.status = :status AND
             user.isDeleted = :flag
-            `, { email: userLoginDto.email, status: eUserStatus.ACTIVE, flag: false })
+            `, { email: userLoginDto.email, flag: false })
             .getOne();
 
-        if (!user || !bcrypt.compareSync(userLoginDto.password, user.password)) {
+        if (!user || !bcrypt.compare(userLoginDto.password, user.password)) {
             throw new UnauthorizedException('User name or password invalid.');
         };
 
