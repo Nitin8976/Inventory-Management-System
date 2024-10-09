@@ -4,14 +4,12 @@ import { AppService } from './app.service';
 import { AuthModule } from './auth/auth.module';
 import { AppConfigModule } from './config/config.module';
 import { RolePermissionsModule } from './modules/role-permissions/role-permissions.module';
-import { EmployeeModule } from './modules/employee/employee.module';
-import { DepartmentModule } from './modules/department/department.module';
-import { ProjectModule } from './modules/project/project.module';
-import { ProjetService } from './modules/project/projet.service';
+import { ProductsModule } from './modules/products/products.module';
+import { SuppliersModule } from './modules/suppliers/suppliers.module';
 
 @Module({
-  imports: [AppConfigModule, AuthModule, RolePermissionsModule, EmployeeModule, DepartmentModule, ProjectModule],
+  imports: [AppConfigModule, AuthModule, RolePermissionsModule, ProductsModule, SuppliersModule],
   controllers: [AppController],
-  providers: [AppService, ProjetService],
+  providers: [AppService],
 })
 export class AppModule { }

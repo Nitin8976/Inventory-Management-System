@@ -1,5 +1,5 @@
 // import * as moment from 'moment';
-import nodemailer from 'nodemailer';
+import * as nodemailer from 'nodemailer';
 
 
 export function capitalizeFirstLetter(string: string) {
@@ -24,8 +24,8 @@ export async function sendEmail(to: string, subject: string, text: string, html:
     host: 'smtp.mailtrap.io', // Replace with your SMTP server
     port: 2525, // Replace with your SMTP port
     auth: {
-      user: '5f42761998d29b', // Replace with your SMTP username
-      pass: '9a92b57ed0b1fd', // Replace with your SMTP password
+      user: 'd279917c3fe46d', // Replace with your SMTP username
+      pass: 'f535c4aae8c7f7', // Replace with your SMTP password
     },
   });
 

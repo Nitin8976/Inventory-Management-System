@@ -22,4 +22,11 @@ export class CreateUserDto {
         message: 'Password must contain at least one uppercase letter, one lowercase letter, one number, and one special character'
     })
     password: string;
+
+    @ApiProperty({ description: 'Manager ID', example: 'uuid-or-integer' })
+    @IsOptional()
+    @IsUUID('all', { message: 'Invalid manager ID' })
+    managerUserID?: string;
+
+
 }

@@ -1,37 +1,43 @@
-import { Entity, Column, PrimaryGeneratedColumn, OneToMany, JoinColumn, ManyToOne } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne, JoinColumn } from 'typeorm';
 import { BaseEntity } from 'src/modules/common/entity/base.entity';
-import { UserRoleEntity } from 'src/modules';
+import { UserRoleEntity } from 'src/modules';// Update this path as necessary
 import { eUserStatus } from 'src/utils/entities.type';
 
 @Entity({ name: 'identity' })
 export class IdentityEntity extends BaseEntity {
     @PrimaryGeneratedColumn('uuid')
-    userID: string;
+    userID: string; // Unique identifier for the user
 
-    @Column({ name: 'name' })
-    name: string;
+    @Column({ name: 'name', length: 100 }) // Length constraint for the name
+    name: string; // Name of the user
 
-    @Column({ name: 'email' })
-    email: string;
+    @Column({ name: 'email', unique: true }) // Ensure email is unique
+    email: string; // Email of the user
 
-    @Column({ name: 'password' })
-    password: string;
-
-    @Column({ name: 'status', enum: eUserStatus, type: 'simple-enum', nullable: true })
-    status: eUserStatus;
-
-    @Column({ name: 'new_account_tour', default: false })
-    newAccountTour: boolean;
+    @Column({ name: 'password' }) // Consider applying encryption/hashing to passwords
+    password: string; // Password of the user
 
     @ManyToOne(() => UserRoleEntity, role => role.users, { nullable: true })
-    @JoinColumn({ name: 'userRoleID' })
-    role?: UserRoleEntity;
+    @JoinColumn({ name: 'userRoleID' }) // Foreign key column for the user role
+    role?: UserRoleEntity; // Role of the user
+
+    @Column({
+        type: 'enum',
+        enum: eUserStatus,
+        default: eUserStatus.ACTIVE, // Assuming there's an ACTIVE status
+    })
+    status: eUserStatus; // Status of the user, e.g., ACTIVE, INACTIVE, BANNED
+
+    @ManyToOne(() => IdentityEntity, ({ nullable: true })) // Column name for the manager
+    manager?: IdentityEntity;
 
     constructor(partial: Partial<IdentityEntity>) {
         super();
-        Object.assign(this, partial);
+        Object.assign(this, partial); // Partial initialization using Object.assign
     }
 
+    // Uncomment and use if necessary
     // @Column({ name: 'ms_ID' })
-    // msID: string; oid
+    // msID: string; // Placeholder for any additional identifiers
 }
+

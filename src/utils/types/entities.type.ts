@@ -9,3 +9,8 @@ export enum eModulePermission {
   MANAGE = 'manage'
 }
 
+export enum UserType {
+  ADMIN = 'admin',
+  STAFF = 'staff',
+  MANAGER = 'manager'
+}

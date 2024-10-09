@@ -1,13 +1,14 @@
 const BASE_ROUTE = '/api';
 
 const AUTH = `${BASE_ROUTE}/auth`;
-const DEPARTMENT = `${BASE_ROUTE}/Department`;
-const EMPLOYEE = `${BASE_ROUTE}/emplyoee`;
+const PRODUCTS = `${BASE_ROUTE}/Products`;
+const SUPPLIER = `${BASE_ROUTE}/Supplier`;
 
 const AUTH_ROUTES = {
     base: AUTH,
     register: '/',
     login: '/login',
+    create: '/create',
     updateAuthUser: '/',
     updateAuthUserStatus: '/user/status',
     updateAuthUserPassword: '/user/password',
@@ -30,30 +31,30 @@ const ROLE_PERMISSION_ROUTES = {
     getUserRoleDetail: '/role/:id'
 };
 
-const EMPLOYEE_ROUTES = {
-    base: EMPLOYEE,
-    createEmployee: '/',
-    updateEmployee: '/',
-    deleteEmployee: '/:id',
-    getEmployeeList: '/list',
-    getEmployeeRoles: '/roles',
-    getEmployeeDetail: '/:id'
+const SUPPLIER_ROUTES = {
+    base: SUPPLIER,
+    createSUPPLIER: '/',
+    updateSUPPLIER: '/',
+    deleteSUPPLIER: '/:id',
+    getSUPPLIERList: '/list',
+    getSUPPLIERRoles: '/roles',
+    getSUPPLIERDetail: '/:id'
 };
 
-const DEPARTMENT_ROUTES = {
-    base: DEPARTMENT,
-    createDepartment: '/',
-    updateDepartment: '/',
-    deleteDepartment: '/:id',
-    getDepartmentList: '/list',
-    getDepartmentRoles: '/roles',
-    getDepartmentDetail: '/:id'
+const PRODUCTS_ROUTES = {
+    base: PRODUCTS,
+    createPRODUCTS: '/',
+    updatePRODUCTS: '/',
+    deletePRODUCTS: '/:id',
+    getPRODUCTSList: '/list',
+    getPRODUCTSRoles: '/roles',
+    getPRODUCTSDetail: '/:id'
 };
 
 export {
     BASE_ROUTE,
     AUTH_ROUTES,
     ROLE_PERMISSION_ROUTES,
-    EMPLOYEE_ROUTES,
-    DEPARTMENT_ROUTES,
+    SUPPLIER_ROUTES,
+    PRODUCTS_ROUTES,
 }

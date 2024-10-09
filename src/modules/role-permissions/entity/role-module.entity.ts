@@ -1,7 +1,7 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { BaseEntity } from 'src/modules/common/entity/base.entity';
 import { eModule } from 'src/utils/entities.type';
-import { EmployeeEntity, PermissionEntity } from 'src/modules';
+import { PermissionEntity } from 'src/modules';
 
 @Entity({ name: 'role_modules' })
 export class RoleModuleEntity extends BaseEntity {
