@@ -36,6 +36,7 @@
     "@nestjs/typeorm": "^10.0.2",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
+    "class-transformer": "^0.5.1",
     "mysql2": "^3.11.3",
     "nestjs-i18n": "^10.4.9",
     "nodemailer": "^6.9.15",

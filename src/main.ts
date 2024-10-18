@@ -31,7 +31,7 @@ async function bootstrap() {
   }
 
   app.useGlobalFilters(new HttpExceptionFilter());
-  // app.useGlobalPipes(new ValidationPipe({ transform: true }))
+  app.useGlobalPipes(new ValidationPipe({ transform: true }))
   await app.listen(configService.get('app.port'));
 }
 bootstrap();
